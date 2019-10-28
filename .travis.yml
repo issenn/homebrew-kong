@@ -7,6 +7,7 @@ branches:
     - syncing
 
 before_install:
+  - export TZ='Asia/Shanghai'
   - git remote add upstream https://github.com/Kong/homebrew-kong.git
   - git fetch upstream
   - git checkout upstream/master
