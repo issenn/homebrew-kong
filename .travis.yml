@@ -12,11 +12,11 @@ before_install:
   - git checkout upstream/master
   - mv Formula/openresty.rb Formula/kong-openresty.rb
   - sed -i 's/^\s*\([Cc]lass\)\s\+[Oo]penresty\s\+\(<\s\+Formula\)\s*/\1 KongOpenresty \2/g' Formula/kong-openresty.rb
-  - sed -i '/bin\.install_symlink/d' Formula/kong-openresty.rb
+  # - sed -i '/bin\.install_symlink/d' Formula/kong-openresty.rb
   - sed -i 's/\(['"'"'"'']\)kong\/kong\/openresty\(\@[0-9\.]\+['"'"'"'']\)\s*/\1issenn\/kong\/kong-openresty\2/g' Formula/kong.rb
   - mv Formula/openresty@1.13.6.2.rb Formula/kong-openresty@1.13.6.2.rb
   - sed -i 's/^\s*\([Cc]lass\)\s\+[Oo]penrestyAT11362\s\+\(<\s\+Formula\)\s*/\1 KongOpenrestyAT11362 \2/g' Formula/kong-openresty@1.13.6.2.rb
-  - sed -i '/bin\.install_symlink/d' Formula/kong-openresty@1.13.6.2.rb
+  # - sed -i '/bin\.install_symlink/d' Formula/kong-openresty@1.13.6.2.rb
   - sed -i 's/\(Library\/Taps\/\)kong/\1issenn/g' .travis.yml
   - sed -i 's/kong\(\/kong\)/issenn\1/g' README.md
   - rm Aliases/openresty@1.15.8.2
