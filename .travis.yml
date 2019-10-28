@@ -18,6 +18,7 @@ before_install:
   - sed -i 's/^\s*\([Cc]lass\)\s\+[Oo]penrestyAT11362\s\+\(<\s\+Formula\)\s*/\1 KongOpenrestyAT11362 \2/g' Formula/kong-openresty@1.13.6.2.rb
   - sed -i '/bin\.install_symlink/d' Formula/kong-openresty@1.13.6.2.rb
   - sed -i 's/\(Library\/Taps\/\)kong/\1issenn/g' .travis.yml
+  - sed -i 's/kong\(\/kong\)/issenn\1/g' README.md
   - rm Aliases/openresty@1.15.8.2
   - cd Aliases && ln -s ../Formula/kong-openresty.rb kong-openresty@1.15.8.2 && cd -
 
