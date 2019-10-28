@@ -19,7 +19,7 @@ before_install:
   - sed -i '/bin\.install_symlink/d' Formula/kong-openresty@1.13.6.2.rb
   - sed -i 's/\(Library\/Taps\/\)kong/\1issenn/g' .travis.yml
   - rm Aliases/openresty@1.15.8.2
-  - ln -s Formula/kong-openresty.rb Aliases/kong-openresty@1.15.8.2
+  - cd Aliases && ln -s ../Formula/kong-openresty.rb kong-openresty@1.15.8.2 && cd -
 
 script:
   - git rm Formula/openresty.rb Formula/openresty@1.13.6.2.rb Aliases/openresty@1.15.8.2
