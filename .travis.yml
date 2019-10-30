@@ -23,8 +23,8 @@ cache:
 # This is done to ensure that the formulas that kong.rb depends on
 # are picked up by the currently-tested branch.
 install:
-  - mkdir -p $(brew --repo)/Library/Taps/kong
-  - ln -s $PWD $(brew --repo)/Library/Taps/kong/homebrew-kong
+  - mkdir -p $(brew --repo)/Library/Taps/issenn
+  - ln -s $PWD $(brew --repo)/Library/Taps/issenn/homebrew-kong
   - brew tap --repair
 
 script:

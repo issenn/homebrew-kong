@@ -1,18 +1,14 @@
-class Openresty < Formula
+class KongOpenrestyAT11362 < Formula
   desc "Scalable Web Platform by Extending Nginx with Lua"
   homepage "https://openresty.org/"
-  version "1.15.8.2"
-  kong_ngx_build_version = "0.0.8"
-  kong_ngx_build_sha_sum = "0320ddf31b93141f050c1cb3e0bb9ff03f4dbfd5e52433cd0ac2d60e25642cc0"
+  version "1.13.6.2"
 
   stable do
-    url "https://raw.githubusercontent.com/Kong/openresty-build-tools/#{kong_ngx_build_version}/kong-ngx-build"
-    sha256 kong_ngx_build_sha_sum
+    url "https://github.com/Kong/openresty-build-tools.git", :tag => "0.0.6"
   end
 
   head do
-    url "https://raw.githubusercontent.com/Kong/openresty-build-tools/#{kong_ngx_build_version}/kong-ngx-build"
-    sha256 kong_ngx_build_sha_sum
+    url "https://github.com/Kong/openresty-build-tools.git"
   end
 
   option "with-debug", "Compile with support for debug logging but without proper gdb debugging symbols"
@@ -22,13 +18,11 @@ class Openresty < Formula
   conflicts_with "kong/kong/luarocks", :because => "We switched over to a new build method and LuaRocks no longer needs to be installed separately. Please remove it with \"brew remove kong/kong/luarocks\"."
 
   def install
-    chmod 0755, "#{pwd}/kong-ngx-build"
-
     args = [
       "--prefix #{prefix}",
       "--openresty #{version}",
-      "--openssl 1.1.1d",
-      "--luarocks 3.2.1",
+      "--openssl 1.1.1c",
+      "--luarocks 3.1.3",
       "-j #{ENV.make_jobs}"
     ]
 
