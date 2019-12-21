@@ -1,4 +1,5 @@
 ## Homebrew Kong Tap
+[![Build Status](https://travis-ci.com/issenn/homebrew-kong.svg?branch=master)](https://travis-ci.com/issenn/homebrew-kong)
 
 Homebrew tap for [Kong] :beer:
 
