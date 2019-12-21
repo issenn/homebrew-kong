@@ -11,7 +11,6 @@ before_install:
   - git remote add upstream https://github.com/Kong/homebrew-kong.git
   - git fetch upstream
   - git checkout upstream/master
-  - KONG_VERSION="$(grep -E '\s+version\s('"'|"'")' Formula/kong-openresty.rb | awk '{print $2}' | tr -d '"'"|'"'')"
   - rename 's/openresty/kong-openresty/' Formula/*.rb
   - sed -i 's/^\s*\([Cc]lass\)\s\+[Oo]penresty\s\+\(<\s\+Formula\)\s*/\1 KongOpenresty \2/g' Formula/kong-openresty.rb
   # - sed -i '/bin\.install_symlink/d' Formula/kong-openresty.rb
@@ -20,8 +19,7 @@ before_install:
   # - sed -i '/bin\.install_symlink/d' Formula/kong-openresty@1.13.6.2.rb
   - sed -i 's/\(Library\/Taps\/\)kong/\1issenn/g' .travis.yml
   - sed -i 's/kong\(\/kong\)/issenn\1/g' README.md
-  - rm Aliases/openresty@"${KONG_VERSION}"
-  - cd Aliases && ln -s ../Formula/kong-openresty.rb kong-openresty@"${KONG_VERSION}" && cd -
+  - KONG_VERSION="$(grep -E '\s+version\s('"'|"'")' Formula/kong-openresty.rb | awk '{print $2}' | tr -d '"'"|'"'')" && rm Aliases/openresty@"${KONG_VERSION}" && cd Aliases && ln -s ../Formula/kong-openresty.rb kong-openresty@"${KONG_VERSION}" && cd -
 
 script:
   - git rm Formula/openresty.rb Formula/openresty@1.13.6.2.rb Aliases/openresty@1.15.8.2
